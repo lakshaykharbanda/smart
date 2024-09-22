@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Tools</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Smart Tools</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Tools</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="nav-buttons">
+            <button class="login-btn" onclick="openModal('loginModal')">Login</button>
+            <button class="signup-btn" onclick="openModal('signupModal')">Sign Up</button>
+        </div>
+    </nav>
+
+    <!-- Background Image with Overlay -->
+    <div class="hero">
+        <img src="bg.png" alt="Background Image" class="bg-image">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Welcome to Smart Tools</h1>
+            <p>All-in-one tools at your fingertips</p>
+        </div>
+    </div>
+
+    <!-- Smart tool module section -->
+<div class="tool-container">
+  <div class="tool-btn" onclick="openModal('calculatorModal')">
+      <img src="cal.png" class="tool-icon" alt="Calculator Icon">
+      <div class="tool-text">Calculator</div>
+  </div>
+  <div class="tool-btn" onclick="openModal('notepadModal')">
+      <img src="notepad.png" class="tool-icon" alt="Notepad Icon">
+      <div class="tool-text">Notepad</div>
+  </div>
+  <div class="tool-btn" onclick="openModal('timerModal')">
+      <img src="timer.jpg" class="tool-icon" alt="Timer Icon">
+      <div class="tool-text">Timer</div>
+  </div>
+  <div class="tool-btn" onclick="openModal('calendarModal')">
+      <img src="calender.png" class="tool-icon" alt="Calendar Icon">
+      <div class="tool-text">Calendar</div>
+  </div>
+  <div class="tool-btn" onclick="openModal('currencyModal')">
+      <img src="currency.png" class="tool-icon" alt="Currency Icon">
+      <div class="tool-text">Currency</div>
+  </div>
+  <div class="tool-btn" onclick="openModal('unitModal')">
+      <img src="meter.png" class="tool-icon" alt="Measurement Icon">
+      <div class="tool-text">Measurement</div>
+  </div>
+</div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Login</h2>
+            <form>
+                <input type="email" placeholder="Email" required><br>
+                <input type="password" placeholder="Password" required><br>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+     
+
+    <!-- Sign-Up Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signupModal')">&times;</span>
+            <h2>Sign Up</h2>
+            <form>
+                <input type="text" placeholder="Username" required><br>
+                <input type="email" placeholder="Email" required><br>
+                <input type="password" placeholder="Password" required><br>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Include the calculator modal and other content here... -->
+    <!-- Calculator Modal -->
+<div id="calculatorModal" class="modal">
+    <div class="calculator">
+        <span class="close" onclick="closeModal('calculatorModal')">&times;</span>
+        <input type="text" id="calculatorScreen" class="calculator-screen" readonly />
+
+        <!-- Calculator buttons layout -->
+        <div class="calculator-buttons">
+            <button class="calculator-button" data-value="AC">AC</button>
+            <button class="calculator-button" data-value="±">±</button>
+            <button class="calculator-button" data-value="%">%</button>
+            <button class="calculator-button" data-value="/">÷</button>
+
+            <button class="calculator-button" data-value="7">7</button>
+            <button class="calculator-button" data-value="8">8</button>
+            <button class="calculator-button" data-value="9">9</button>
+            <button class="calculator-button" data-value="*">×</button>
+
+            <button class="calculator-button" data-value="4">4</button>
+            <button class="calculator-button" data-value="5">5</button>
+            <button class="calculator-button" data-value="6">6</button>
+            <button class="calculator-button" data-value="-">−</button>
+
+            <button class="calculator-button" data-value="1">1</button>
+            <button class="calculator-button" data-value="2">2</button>
+            <button class="calculator-button" data-value="3">3</button>
+            <button class="calculator-button" data-value="+">+</button>
+
+            <button class="calculator-button" data-value="0" style="grid-column: span 2;">0</button>
+            <button class="calculator-button" data-value=".">.</button>
+            <button class="calculator-button equals" data-value="=">=</button>
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- Modal -->
+    <div id="timerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('timerModal')">&times;</span>
+            
+            <!-- Timer Title -->
+            <h1>Countdown Timer</h1>
+
+            <!-- Timer Form -->
+            <input type="datetime-local" id="datetime-picker">
+            <br>
+            <button id="start-btn">Start</button>
+
+            <!-- Countdown Display -->
+            <div class="countdown-display">
+                <span id="days">00</span> :
+                <span id="hours">00</span> :
+                <span id="minutes">00</span> :
+                <span id="seconds">00</span>
+            </div>
+
+            <!-- Countdown Text -->
+            <div id="time-remaining" class="timer-text">0 Days 0 Hours 0 Minutes 0 Seconds Remaining</div>
+
+            <!-- Message Area -->
+            <div id="message" class="timer-text"></div>
+        </div>
+    </div>
+
+       <!-- Calendar Modal -->
+    <div id="calendarModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('calendarModal')">&times;</span>
+            <div class="modal-header">
+            <h2>Set a reminder date</h2>
+         </div>
+        <div class="modal-body">
+            <input type="datetime-local" id="reminder-date" class="reminder-input">
+            <textarea id="reminder-note" placeholder="Write a note..."></textarea>
+        </div>
+        <div class="modal-footer">
+            <button class="save-btn" onclick="saveReminder()">Save</button> <!-- Save Button -->
+        </div>
+        <div id="highlighted-dates-container" class="highlighted-dates-container">
+        </div>
+        </div>
+    </div>
+
+<!-- Unit Measurement Converter Modal -->
+<div id="unitModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('unitModal')">&times;</span>
+        <h2>Unit Measurement Converter</h2>
+
+        <div class="converter-form">
+            <select id="unitType" onchange="populateUnits()">
+                <option value="">Select Unit Type</option>
+                <option value="length">Length</option>
+                <option value="weight">Weight</option>
+                <option value="temperature">Temperature</option>
+            </select>
+
+            <div>
+                <input type="number" id="inputUnit" placeholder="Enter value">
+                <select id="inputUnitType"></select>
+            </div>
+
+            <div>
+                <input type="number" id="outputUnit" placeholder="Converted value" readonly>
+                <select id="outputUnitType"></select>
+            </div>
+
+            <button onclick="convertUnit()">Convert</button>
+        </div>
+    </div>
+</div>
+
+<!-- Currency Calculator Modal -->
+<div id="currencyModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('currencyModal')">&times;</span>
+        <h2>Currency Calculator</h2>
+
+        <div class="converter-form">
+            <input type="number" id="currencyInput" placeholder="Amount">
+            
+            <div>
+                <select id="fromCurrency">
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="INR">INR</option>
+                </select>
+                to
+                <select id="toCurrency">
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="INR">INR</option>
+                </select>
+            </div>
+
+            <button onclick="convertCurrency()">Convert</button>
+
+            <p id="currencyResult">Converted Amount: </p>
+        </div>
+    </div>
+</div>
+<!-- Notepad Modal -->
+<div id="notepadModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('notepadModal')">&times;</span>
+        <h2>Notepad</h2>
+        <!-- Text area for writing notes -->
+        <textarea id="notepadContent" rows="10" placeholder="Write your note here..."></textarea>
+        <div class="modal-footer">
+            <!-- Save Button -->
+            <button class="save-btn" onclick="saveNotepad()">Save</button>
+        </div>
+    </div>
+</div>
+
+    <script src="custom.js"></script>
+</body>
+</html>
